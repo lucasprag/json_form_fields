@@ -6,7 +6,7 @@ Sometimes you will need to have a attribute that acts as a JSON, but to CRUD thi
 Instalation
 ---------------
 
-Add to you Gemfile
+Add to your Gemfile
 
 ```ruby
 gem 'json'
