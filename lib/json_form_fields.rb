@@ -1,5 +1,5 @@
-class JsonFormFields
-  def self.convert_to_text_tag
-    #todo implement this
-  end
+require 'json'
+
+module JsonFormFields
+  VERSION = "0.1.0"
 end
