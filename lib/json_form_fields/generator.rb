@@ -11,6 +11,12 @@ module JsonFormFields
             str += "<option value=\"#{option}\">#{option}</option>"
           end
           str += "</select>"
+        elsif /password.*/ === key
+          str += "<input type=\"password\" id=\"#{key}\" name=\"#{key}\" />"
+        elsif /email.*/  === key
+          str += "<input type=\"email\" id=\"#{key}\" name=\"#{key}\" />"
+        else
+          str += "<input type=\"text\" id=\"#{key}\" name=\"#{key}\" />"
         end
       end
       str

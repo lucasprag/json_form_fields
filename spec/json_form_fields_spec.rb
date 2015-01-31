@@ -31,7 +31,7 @@ describe JsonFormFields do
     end
 
     it "text" do
-      expect(JsonFormFields::Generator.generate_inputs(json_text)).to eq(input_tex)
+      expect(JsonFormFields::Generator.generate_inputs(json_text)).to eq(input_text)
     end
 
     it "email" do
