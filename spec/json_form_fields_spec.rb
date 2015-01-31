@@ -27,15 +27,15 @@ describe JsonFormFields do
     end
 
     it "password" do
-      expect(JsonFormFields::Generator.generate_inputs(json_select)).to eq(input_select)
+      expect(JsonFormFields::Generator.generate_inputs(json_password)).to eq(input_password)
     end
 
     it "text" do
-      expect(JsonFormFields::Generator.generate_inputs(json_select)).to eq(input_select)
+      expect(JsonFormFields::Generator.generate_inputs(json_text)).to eq(input_tex)
     end
 
     it "email" do
-      expect(JsonFormFields::Generator.generate_inputs(json_select)).to eq(input_select)
+      expect(JsonFormFields::Generator.generate_inputs(json_email)).to eq(input_email)
     end
 
   end
