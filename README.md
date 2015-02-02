@@ -20,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-(soon)
+Add this to your application.js
+
+```javascript
+//= require json_form_fields
+```
 
 ## Contributing
 
