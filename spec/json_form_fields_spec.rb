@@ -4,7 +4,7 @@ describe JsonFormFields do
 
   let!(:json_select){ {method: ["GET", "POST", "PUT", "DELETE"] }.to_json }
   let!(:input_select){
-    "<select id=\"method\" name=\"method\">"\
+    "<select id=\"#{JsonFormFields::STYLE_CLASS}method\" class=\"#{JsonFormFields::STYLE_CLASS}\">"\
       "<option value=\"GET\">GET</option>"\
       "<option value=\"POST\">POST</option>"\
       "<option value=\"PUT\">PUT</option>"\
@@ -13,13 +13,13 @@ describe JsonFormFields do
   }
 
   let!(:json_password){ { password: "" }.to_json }
-  let!(:input_password){ "<input type=\"password\" id=\"password\" name=\"password\" />" }
+  let!(:input_password){ "<input type=\"password\" id=\"#{JsonFormFields::STYLE_CLASS}password\" class=\"#{JsonFormFields::STYLE_CLASS}\">" }
 
   let!(:json_text){ { url: "" }.to_json }
-  let!(:input_text){ "<input type=\"text\" id=\"url\" name=\"url\" />" }
+  let!(:input_text){ "<input type=\"text\" id=\"#{JsonFormFields::STYLE_CLASS}url\" class=\"#{JsonFormFields::STYLE_CLASS}\">" }
 
   let!(:json_email){ { email: "" }.to_json }
-  let!(:input_email){ "<input type=\"email\" id=\"email\" name=\"email\" />" }
+  let!(:input_email){ "<input type=\"email\" id=\"#{JsonFormFields::STYLE_CLASS}email\" class=\"#{JsonFormFields::STYLE_CLASS}\">" }
 
   context "generates" do
     it "select" do
