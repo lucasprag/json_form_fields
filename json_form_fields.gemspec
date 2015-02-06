@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = JsonFormFields::VERSION
   spec.authors       = ["Lucas Oliveira"]
   spec.email         = ["loslucassilva@gmail.com"]
-  spec.summary       = %q{A gem to write JSON with form fields}
-  spec.description   = %q{A gem to write JSON with form fields}
+  spec.summary       = %q{A gem to write form fields from JSON documents}
+  spec.description   = %q{A gem to write form fields from JSON documents}
   spec.homepage      = "https://github.com/Lucasosf/json_form_fields"
   spec.license       = "MIT"
 
