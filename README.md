@@ -1,6 +1,6 @@
 # Json Form Fields
 
-Sometimes you will need to have a attribute that acts as a JSON, but to CRUD this your user must to have knowledge to read and write JSON, then you can use this gem to convert traditional form fields to JSON format.
+This gem generates form inputs from JSON documents.
 
 ## Installation
 
@@ -20,15 +20,16 @@ Or install it yourself as:
 
 ## Usage
 
-Add this to your application.js
-
-```javascript
-//= require json_form_fields
+```ruby
+ JsonFormFields::Generator.generate_inputs({ method: ["GET", "POST"] })
 ```
+
+Will generate a select with GET and POST options. Works also with
+password, email and text inputs.
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/json_form_fields/fork )
+1. Fork it ( https://github.com/Lucasosf/json_form_fields/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

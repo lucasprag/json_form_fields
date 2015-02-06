@@ -5,17 +5,17 @@ module JsonFormFields
       str = ''
       json.keys.each do |key|
         if json[key].kind_of?(Array)
-          str += "<select id=\"#{JsonFormFields::STYLE_CLASS}#{key}\" class=\"#{JsonFormFields::STYLE_CLASS}\">"
+          str += "<select id=\"#{key}\">"
           json[key].each do |option|
             str += "<option value=\"#{option}\">#{option}</option>"
           end
           str += "</select>"
         elsif /password.*/ === key
-          str += "<input type=\"password\" id=\"#{JsonFormFields::STYLE_CLASS}#{key}\" class=\"#{JsonFormFields::STYLE_CLASS}\">"
+          str += "<input type=\"password\" id=\"#{key}\">"
         elsif /email.*/  === key
-          str += "<input type=\"email\" id=\"#{JsonFormFields::STYLE_CLASS}#{key}\" class=\"#{JsonFormFields::STYLE_CLASS}\">"
+          str += "<input type=\"email\" id=\"#{key}\">"
         else
-          str += "<input type=\"text\" id=\"#{JsonFormFields::STYLE_CLASS}#{key}\" class=\"#{JsonFormFields::STYLE_CLASS}\">"
+          str += "<input type=\"text\" id=\"#{key}\">"
         end
       end
       str
