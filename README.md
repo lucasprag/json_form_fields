@@ -23,9 +23,25 @@ Or install it yourself as:
 ```ruby
  JsonFormFields::Generator.generate_inputs({ method: ["GET", "POST"] })
 ```
-
 Will generate a select with GET and POST options. Works also with
 password, email and text inputs.
+
+
+You also can use the javascript generator in a Rails app, just add this to your application.js
+
+```javascript
+//= require json_form_fields
+```
+
+And use as the follows and the script will get the JSON form the content
+of the textarea and will generate the inputs bellow:
+
+```javascript
+$('.your_textarea_id_or_class').json_form_fields();
+
+```
+
+
 
 ## Contributing
 
