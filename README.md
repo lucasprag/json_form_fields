@@ -34,14 +34,12 @@ You also can use the javascript generator in a Rails app, just add this to your 
 ```
 
 And use as the follows and the script will get the JSON form the content
-of the textarea and will generate the inputs bellow:
+of the input and will generate the inputs bellow:
 
 ```javascript
-$('.your_textarea_id_or_class').json_form_fields();
+$('.your_input_id_or_class').json_form_fields();
 
 ```
-
-
 
 ## Contributing
 
