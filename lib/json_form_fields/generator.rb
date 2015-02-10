@@ -13,9 +13,9 @@ module JsonFormFields
         elsif /password.*/ === key
           str += "<input type=\"password\" id=\"#{key}\">"
         elsif /email.*/  === key
-          str += "<input type=\"email\" id=\"#{key}\">"
+          str += "<input type=\"email\" id=\"#{key}\" value=\"#{json[key]}\">"
         else
-          str += "<input type=\"text\" id=\"#{key}\">"
+          str += "<input type=\"text\" id=\"#{key}\" value=\"#{json[key]}\">"
         end
       end
       str

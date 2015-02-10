@@ -15,11 +15,11 @@ describe JsonFormFields do
   let!(:json_password){ { password: "" }.to_json }
   let!(:input_password){ "<input type=\"password\" id=\"password\">" }
 
-  let!(:json_text){ { url: "" }.to_json }
-  let!(:input_text){ "<input type=\"text\" id=\"url\">" }
+  let!(:json_text){ { url: "http://" }.to_json }
+  let!(:input_text){ "<input type=\"text\" id=\"url\" value=\"http://\">" }
 
   let!(:json_email){ { email: "" }.to_json }
-  let!(:input_email){ "<input type=\"email\" id=\"email\">" }
+  let!(:input_email){ "<input type=\"email\" id=\"email\" value=\"\">" }
 
   context "generates" do
     it "select" do
