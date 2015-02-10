@@ -33,7 +33,7 @@ You also can use the javascript generator in a Rails app, just add this to your 
 //= require json_form_fields
 ```
 
-And use as the follows and the script will get the JSON form the content
+And use as follows and the script will get the JSON from the content
 of the input and will generate the inputs bellow:
 
 ```javascript
