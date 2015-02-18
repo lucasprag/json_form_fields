@@ -49,6 +49,12 @@ describe JsonFormFields do
   let!(:json_email){ { email: "" }.to_json }
   let!(:input_email){ "<div><input name=\"email\" type=\"email\" id=\"email\" value=\"\" /></div>" }
 
+  let!(:json_email_and_password_with_template){ { email: "", password: "password", template: "<label>yield</label>" }.to_json }
+  let!(:fields_email_and_password_with_template) {
+    "<label><input name=\"email\" type=\"email\" id=\"email\""\
+  " value=\"\" /></label><label><input name=\"password\" type=\"password\" id=\"password\" /></label>"
+  }
+
   context "generates" do
     it "select" do
       expect(JsonFormFields::Generator.generate_inputs(json_select)).to eq(input_select)
@@ -80,6 +86,10 @@ describe JsonFormFields do
 
     it "radio" do
       expect(JsonFormFields::Generator.generate_inputs(json_radio)).to eq(input_radio)
+    end
+
+    it "email and password with custom template" do
+      expect(JsonFormFields::Generator.generate_inputs(json_email_and_password_with_template)).to eq(fields_email_and_password_with_template)
     end
 
   end

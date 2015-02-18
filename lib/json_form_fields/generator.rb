@@ -2,11 +2,11 @@ module JsonFormFields
   class Generator
     def self.generate_inputs(json)
       json = JSON.parse(json)
-      str = ''
+      fields = ''
       json['template'] ||= "<div>yield</div>"
-
       json.keys.each do |key|
         next if key == 'template'
+        str = ''
         if json[key].kind_of?(Array)
           multiple = false
 
@@ -41,8 +41,9 @@ module JsonFormFields
           str += "<input name=\"#{key}\" type=\"text\" id=\"#{key}\" value=\"#{json[key]}\" />"
         end
         str = "%s" % json['template'].gsub("yield", str)
+        fields += str
       end
-      str
+      fields
     end
   end
 end
