@@ -22,29 +22,29 @@ describe JsonFormFields do
     "</select>"
   }
 
-  let!(:json_radio){ { am_i: ['Women', 'Man', '_radio'] } }
+  let!(:json_radio){ { am_i: ['Women', 'Man', '_radio'] }.to_json }
   let!(:input_radio){
     "<input type=\"radio\" name=\"am_i\" value=\"Women\" />Women"\
     "<input type=\"radio\" name=\"am_i\" value=\"Man\" />Man"\
   }
 
-  let!(:json_checkboxes){ { so: ['Linux', 'Windows', '_checkboxes'] } }
+  let!(:json_checkboxes){ { so: ['Linux', 'Windows', '_checkbox'] }.to_json }
   let!(:input_checkboxes){
-    "<input type=\"checkbox\" name=\"so\" value=\"Linux\" />Women"\
-    "<input type=\"checkbox\" name=\"so\" value=\"Windows\" />Man"\
+    "<input type=\"checkbox\" name=\"so\" value=\"Linux\" />Linux"\
+    "<input type=\"checkbox\" name=\"so\" value=\"Windows\" />Windows"\
   }
 
-  let!(:json_checkboxes_group){ { so: ['Linux', 'Windows', '_checkboxes', '_multiple'] } }
+  let!(:json_checkboxes_group){ { so: ['Linux', 'Windows', '_checkbox', '_multiple'] }.to_json }
   let!(:input_checkboxes_group){
-    "<input type=\"checkbox\" name=\"so[]\" value=\"Linux\" />Women"\
-    "<input type=\"checkbox\" name=\"so[]\" value=\"Windows\" />Man"\
+    "<input type=\"checkbox\" name=\"so[]\" value=\"Linux\" />Linux"\
+    "<input type=\"checkbox\" name=\"so[]\" value=\"Windows\" />Windows"\
   }
 
   let!(:json_password){ { password: "" }.to_json }
   let!(:input_password){ "<input name=\"password\" type=\"password\" id=\"password\">" }
 
   let!(:json_text){ { url: "http://" }.to_json }
-  let!(:input_text){ "<input name\"url\" type=\"text\" id=\"url\" value=\"http://\">" }
+  let!(:input_text){ "<input name=\"url\" type=\"text\" id=\"url\" value=\"http://\">" }
 
   let!(:json_email){ { email: "" }.to_json }
   let!(:input_email){ "<input name=\"email\" type=\"email\" id=\"email\" value=\"\">" }
