@@ -6,7 +6,7 @@ module JsonFormFields
       json['template'] ||= "<div>yield</div>"
       json.keys.each do |key|
         next if key == 'template'
-        str = ''
+        str = "<label>#{key.gsub('_', ' ').capitalize}</label>"
         if json[key].kind_of?(Array)
           multiple = false
 

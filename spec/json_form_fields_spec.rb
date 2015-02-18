@@ -4,7 +4,7 @@ describe JsonFormFields do
 
   let!(:json_select){ {method: ["GET", "POST", "PUT", "DELETE"] }.to_json }
   let!(:input_select){
-    "<div><select name=\"method\" id=\"method\">"\
+    "<div><label>Method</label><select name=\"method\" id=\"method\">"\
       "<option value=\"GET\">GET</option>"\
       "<option value=\"POST\">POST</option>"\
       "<option value=\"PUT\">PUT</option>"\
@@ -14,7 +14,7 @@ describe JsonFormFields do
 
   let!(:json_select_multiple){ {method: ["GET", "POST", "PUT", "DELETE", "_multiple"] }.to_json }
   let!(:input_select_multiple){
-    "<div><select name=\"method\" multiple id=\"method\">"\
+    "<div><label>Method</label><select name=\"method\" multiple id=\"method\">"\
       "<option value=\"GET\">GET</option>"\
       "<option value=\"POST\">POST</option>"\
       "<option value=\"PUT\">PUT</option>"\
@@ -24,35 +24,35 @@ describe JsonFormFields do
 
   let!(:json_radio){ { am_i: ['Women', 'Man', '_radio'] }.to_json }
   let!(:input_radio){
-    "<div><input type=\"radio\" name=\"am_i\" value=\"Women\" />Women"\
+    "<div><label>Am i</label><input type=\"radio\" name=\"am_i\" value=\"Women\" />Women"\
     "<input type=\"radio\" name=\"am_i\" value=\"Man\" />Man</div>"\
   }
 
   let!(:json_checkboxes){ { so: ['Linux', 'Windows', '_checkbox'] }.to_json }
   let!(:input_checkboxes){
-    "<div><input type=\"checkbox\" name=\"so\" value=\"Linux\" />Linux"\
+    "<div><label>So</label><input type=\"checkbox\" name=\"so\" value=\"Linux\" />Linux"\
     "<input type=\"checkbox\" name=\"so\" value=\"Windows\" />Windows</div>"\
   }
 
   let!(:json_checkboxes_group){ { so: ['Linux', 'Windows', '_checkbox', '_multiple'] }.to_json }
   let!(:input_checkboxes_group){
-    "<div><input type=\"checkbox\" name=\"so[]\" value=\"Linux\" />Linux"\
+    "<div><label>So</label><input type=\"checkbox\" name=\"so[]\" value=\"Linux\" />Linux"\
     "<input type=\"checkbox\" name=\"so[]\" value=\"Windows\" />Windows</div>"\
   }
 
   let!(:json_password){ { password: "" }.to_json }
-  let!(:input_password){ "<div><input name=\"password\" type=\"password\" id=\"password\" /></div>" }
+  let!(:input_password){ "<div><label>Password</label><input name=\"password\" type=\"password\" id=\"password\" /></div>" }
 
   let!(:json_text){ { url: "http://" }.to_json }
-  let!(:input_text){ "<div><input name=\"url\" type=\"text\" id=\"url\" value=\"http://\" /></div>" }
+  let!(:input_text){ "<div><label>Url</label><input name=\"url\" type=\"text\" id=\"url\" value=\"http://\" /></div>" }
 
   let!(:json_email){ { email: "" }.to_json }
-  let!(:input_email){ "<div><input name=\"email\" type=\"email\" id=\"email\" value=\"\" /></div>" }
+  let!(:input_email){ "<div><label>Email</label><input name=\"email\" type=\"email\" id=\"email\" value=\"\" /></div>" }
 
   let!(:json_email_and_password_with_template){ { email: "", password: "password", template: "<label>yield</label>" }.to_json }
   let!(:fields_email_and_password_with_template) {
-    "<label><input name=\"email\" type=\"email\" id=\"email\""\
-  " value=\"\" /></label><label><input name=\"password\" type=\"password\" id=\"password\" /></label>"
+    "<label><label>Email</label><input name=\"email\" type=\"email\" id=\"email\""\
+  " value=\"\" /></label><label><label>Password</label><input name=\"password\" type=\"password\" id=\"password\" /></label>"
   }
 
   context "generates" do
