@@ -4,7 +4,7 @@ describe JsonFormFields do
 
   let!(:json_select){ {method: ["GET", "POST", "PUT", "DELETE"] }.to_json }
   let!(:input_select){
-    "<select id=\"method\">"\
+    "<select name=\"method\" id=\"method\">"\
       "<option value=\"GET\">GET</option>"\
       "<option value=\"POST\">POST</option>"\
       "<option value=\"PUT\">PUT</option>"\
@@ -12,14 +12,42 @@ describe JsonFormFields do
     "</select>"
   }
 
+  let!(:json_select_multiple){ {method: ["GET", "POST", "PUT", "DELETE", "_multiple"] }.to_json }
+  let!(:input_select_multiple){
+    "<select name=\"method\" multiple id=\"method\">"\
+      "<option value=\"GET\">GET</option>"\
+      "<option value=\"POST\">POST</option>"\
+      "<option value=\"PUT\">PUT</option>"\
+      "<option value=\"DELETE\">DELETE</option>"\
+    "</select>"
+  }
+
+  let!(:json_radio){ { am_i: ['Women', 'Man', '_radio'] } }
+  let!(:input_radio){
+    "<input type=\"radio\" name=\"am_i\" value=\"Women\" />Women"\
+    "<input type=\"radio\" name=\"am_i\" value=\"Man\" />Man"\
+  }
+
+  let!(:json_checkboxes){ { so: ['Linux', 'Windows', '_checkboxes'] } }
+  let!(:input_checkboxes){
+    "<input type=\"checkbox\" name=\"so\" value=\"Linux\" />Women"\
+    "<input type=\"checkbox\" name=\"so\" value=\"Windows\" />Man"\
+  }
+
+  let!(:json_checkboxes_group){ { so: ['Linux', 'Windows', '_checkboxes', '_multiple'] } }
+  let!(:input_checkboxes_group){
+    "<input type=\"checkbox\" name=\"so[]\" value=\"Linux\" />Women"\
+    "<input type=\"checkbox\" name=\"so[]\" value=\"Windows\" />Man"\
+  }
+
   let!(:json_password){ { password: "" }.to_json }
-  let!(:input_password){ "<input type=\"password\" id=\"password\">" }
+  let!(:input_password){ "<input name=\"password\" type=\"password\" id=\"password\">" }
 
   let!(:json_text){ { url: "http://" }.to_json }
-  let!(:input_text){ "<input type=\"text\" id=\"url\" value=\"http://\">" }
+  let!(:input_text){ "<input name\"url\" type=\"text\" id=\"url\" value=\"http://\">" }
 
   let!(:json_email){ { email: "" }.to_json }
-  let!(:input_email){ "<input type=\"email\" id=\"email\" value=\"\">" }
+  let!(:input_email){ "<input name=\"email\" type=\"email\" id=\"email\" value=\"\">" }
 
   context "generates" do
     it "select" do
@@ -36,6 +64,22 @@ describe JsonFormFields do
 
     it "email" do
       expect(JsonFormFields::Generator.generate_inputs(json_email)).to eq(input_email)
+    end
+
+    it "checkbox" do
+      expect(JsonFormFields::Generator.generate_inputs(json_checkboxes)).to eq(input_checkboxes)
+    end
+
+    it "checkbox group" do
+      expect(JsonFormFields::Generator.generate_inputs(json_checkboxes_group)).to eq(input_checkboxes_group)
+    end
+
+    it "multiple select" do
+      expect(JsonFormFields::Generator.generate_inputs(json_select_multiple)).to eq(input_select_multiple)
+    end
+
+    it "radio" do
+      expect(JsonFormFields::Generator.generate_inputs(json_radio)).to eq(input_radio)
     end
 
   end
