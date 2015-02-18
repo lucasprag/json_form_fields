@@ -4,50 +4,50 @@ describe JsonFormFields do
 
   let!(:json_select){ {method: ["GET", "POST", "PUT", "DELETE"] }.to_json }
   let!(:input_select){
-    "<select name=\"method\" id=\"method\">"\
+    "<div><select name=\"method\" id=\"method\">"\
       "<option value=\"GET\">GET</option>"\
       "<option value=\"POST\">POST</option>"\
       "<option value=\"PUT\">PUT</option>"\
       "<option value=\"DELETE\">DELETE</option>"\
-    "</select>"
+    "</select></div>"
   }
 
   let!(:json_select_multiple){ {method: ["GET", "POST", "PUT", "DELETE", "_multiple"] }.to_json }
   let!(:input_select_multiple){
-    "<select name=\"method\" multiple id=\"method\">"\
+    "<div><select name=\"method\" multiple id=\"method\">"\
       "<option value=\"GET\">GET</option>"\
       "<option value=\"POST\">POST</option>"\
       "<option value=\"PUT\">PUT</option>"\
       "<option value=\"DELETE\">DELETE</option>"\
-    "</select>"
+    "</select></div>"
   }
 
   let!(:json_radio){ { am_i: ['Women', 'Man', '_radio'] }.to_json }
   let!(:input_radio){
-    "<input type=\"radio\" name=\"am_i\" value=\"Women\" />Women"\
-    "<input type=\"radio\" name=\"am_i\" value=\"Man\" />Man"\
+    "<div><input type=\"radio\" name=\"am_i\" value=\"Women\" />Women"\
+    "<input type=\"radio\" name=\"am_i\" value=\"Man\" />Man</div>"\
   }
 
   let!(:json_checkboxes){ { so: ['Linux', 'Windows', '_checkbox'] }.to_json }
   let!(:input_checkboxes){
-    "<input type=\"checkbox\" name=\"so\" value=\"Linux\" />Linux"\
-    "<input type=\"checkbox\" name=\"so\" value=\"Windows\" />Windows"\
+    "<div><input type=\"checkbox\" name=\"so\" value=\"Linux\" />Linux"\
+    "<input type=\"checkbox\" name=\"so\" value=\"Windows\" />Windows</div>"\
   }
 
   let!(:json_checkboxes_group){ { so: ['Linux', 'Windows', '_checkbox', '_multiple'] }.to_json }
   let!(:input_checkboxes_group){
-    "<input type=\"checkbox\" name=\"so[]\" value=\"Linux\" />Linux"\
-    "<input type=\"checkbox\" name=\"so[]\" value=\"Windows\" />Windows"\
+    "<div><input type=\"checkbox\" name=\"so[]\" value=\"Linux\" />Linux"\
+    "<input type=\"checkbox\" name=\"so[]\" value=\"Windows\" />Windows</div>"\
   }
 
   let!(:json_password){ { password: "" }.to_json }
-  let!(:input_password){ "<input name=\"password\" type=\"password\" id=\"password\">" }
+  let!(:input_password){ "<div><input name=\"password\" type=\"password\" id=\"password\" /></div>" }
 
   let!(:json_text){ { url: "http://" }.to_json }
-  let!(:input_text){ "<input name=\"url\" type=\"text\" id=\"url\" value=\"http://\">" }
+  let!(:input_text){ "<div><input name=\"url\" type=\"text\" id=\"url\" value=\"http://\" /></div>" }
 
   let!(:json_email){ { email: "" }.to_json }
-  let!(:input_email){ "<input name=\"email\" type=\"email\" id=\"email\" value=\"\">" }
+  let!(:input_email){ "<div><input name=\"email\" type=\"email\" id=\"email\" value=\"\" /></div>" }
 
   context "generates" do
     it "select" do

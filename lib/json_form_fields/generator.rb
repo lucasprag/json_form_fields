@@ -3,7 +3,10 @@ module JsonFormFields
     def self.generate_inputs(json)
       json = JSON.parse(json)
       str = ''
+      json['template'] ||= "<div>yield</div>"
+
       json.keys.each do |key|
+        next if key == 'template'
         if json[key].kind_of?(Array)
           multiple = false
 
@@ -31,12 +34,13 @@ module JsonFormFields
           end
 
         elsif /password.*/ === key
-          str += "<input name=\"#{key}\" type=\"password\" id=\"#{key}\">"
+          str += "<input name=\"#{key}\" type=\"password\" id=\"#{key}\" />"
         elsif /email.*/  === key
-          str += "<input name=\"#{key}\" type=\"email\" id=\"#{key}\" value=\"#{json[key]}\">"
+          str += "<input name=\"#{key}\" type=\"email\" id=\"#{key}\" value=\"#{json[key]}\" />"
         else
-          str += "<input name=\"#{key}\" type=\"text\" id=\"#{key}\" value=\"#{json[key]}\">"
+          str += "<input name=\"#{key}\" type=\"text\" id=\"#{key}\" value=\"#{json[key]}\" />"
         end
+        str = "%s" % json['template'].gsub("yield", str)
       end
       str
     end
