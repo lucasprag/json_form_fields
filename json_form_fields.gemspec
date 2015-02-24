@@ -6,8 +6,8 @@ require 'json_form_fields/version'
 Gem::Specification.new do |spec|
   spec.name          = "json_form_fields"
   spec.version       = JsonFormFields::VERSION
-  spec.authors       = ["Lucas Oliveira"]
-  spec.email         = ["loslucassilva@gmail.com"]
+  spec.authors       = ["Lucas Oliveira", "Lucas Gomide"]
+  spec.email         = ["loslucassilva@gmail.com", "lucaslg200@gmail.com"]
   spec.summary       = %q{A gem to write form fields from JSON documents}
   spec.description   = %q{A gem to write form fields from JSON documents}
   spec.homepage      = "https://github.com/Lucasosf/json_form_fields"
