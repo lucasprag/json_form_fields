@@ -17,12 +17,12 @@ module JsonFormFields
           if json[key].delete "_checkbox"
             json[key].each do |value|
               name = multiple ? "#{key}[]" : "#{key}"
-              str += "<input type=\"checkbox\" name=\"#{name}\" "\
+              str += "<input id=\"#{key}\" type=\"checkbox\" name=\"#{name}\" "\
               "value=\"#{value}\" />#{value}"
             end
           elsif json[key].delete "_radio"
             json[key].each do |value|
-              str += "<input type=\"radio\" name=\"#{key}\" value=\"#{value}\" />#{value}"
+              str += "<input id=\"#{key}\" type=\"radio\" name=\"#{key}\" value=\"#{value}\" />#{value}"
             end
           else
             str += "<select name=\"#{key}\" " + (multiple ? "multiple " : "") +
