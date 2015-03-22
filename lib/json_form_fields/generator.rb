@@ -21,8 +21,12 @@ module JsonFormFields
               "value=\"#{value}\" />#{value}"
             end
           elsif json[key].delete "_radio"
-            json[key].each do |value|
-              str += "<input id=\"#{key}\" type=\"radio\" name=\"#{key}\" value=\"#{value}\" />#{value}"
+            if json[key].delete "_boolean"
+              str += "<input id=\"#{key}\" type=\"hidden\" name=\"#{key}\" value=\"0\" /><input id=\"#{key}\" type=\"radio\" name=\"#{key}\" value=\"1\" />"
+            else
+              json[key].each do |value|
+                str += "<input id=\"#{key}\" type=\"radio\" name=\"#{key}\" value=\"#{value}\" />#{value}"
+              end
             end
           else
             str += "<select name=\"#{key}\" " + (multiple ? "multiple " : "") +

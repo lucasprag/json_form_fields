@@ -28,6 +28,12 @@ describe JsonFormFields do
     "<input id=\"am_i\" type=\"radio\" name=\"am_i\" value=\"Man\" />Man</div>"\
   }
 
+  let!(:json_radio_boolean){ { active: ['_boolean', '_radio'] }.to_json }
+  let!(:input_radio_boolean){
+    "<div><label>Active</label><input id=\"active\" type=\"hidden\" name=\"active\" value=\"0\" />"\
+    "<input id=\"active\" type=\"radio\" name=\"active\" value=\"1\" /></div>"\
+  }
+
   let!(:json_checkboxes){ { so: ['Linux', 'Windows', '_checkbox'] }.to_json }
   let!(:input_checkboxes){
     "<div><label>So</label><input id=\"so\" type=\"checkbox\" name=\"so\" value=\"Linux\" />Linux"\
@@ -86,6 +92,9 @@ describe JsonFormFields do
 
     it "radio" do
       expect(JsonFormFields::Generator.generate_inputs(json_radio)).to eq(input_radio)
+    end
+    it "radio boolean" do
+      expect(JsonFormFields::Generator.generate_inputs(json_radio_boolean)).to eq(input_radio_boolean)
     end
 
     it "email and password with custom template" do
