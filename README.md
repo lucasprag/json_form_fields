@@ -1,5 +1,7 @@
 # Json Form Fields
 
+[![wercker status](https://app.wercker.com/status/d77720171bb26aadf287506a9b93679d/s "wercker status")](https://app.wercker.com/project/bykey/d77720171bb26aadf287506a9b93679d)
+
 This gem generates form inputs from JSON documents.
 
 ## Installation
